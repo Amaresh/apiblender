@@ -1,3 +1,16 @@
+from flask import Flask, jsonify
+import datetime
+
+app = Flask(__name__)
+
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({
+        "status": "ok",
+        "timestamp": datetime.datetime.utcnow().isoformat()
+    })
+
+# Existing code below...
 import sys
 import os
 import json
